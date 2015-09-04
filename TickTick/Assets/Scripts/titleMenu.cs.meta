@@ -1,10 +1,13 @@
 fileFormatVersion: 2
 guid: 580a93130bb26c24292108a12f85732a
-timeCreated: 1441323940
+timeCreated: 1441327280
 licenseType: Free
 MonoImporter:
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - backgroundTexture: {instanceID: 0}
+  - playButtonTexture: {instanceID: 0}
+  - helpButtonTexture: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
