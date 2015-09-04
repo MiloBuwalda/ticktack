@@ -1,15 +1,19 @@
 ﻿/// <summary>
 /// Help  (replacement for HelpState.cs)
-/// Assigned to Main camera in Help scene
+/// Assigned to Child object of Main camera in menu scene
 /// </summary>
 using UnityEngine;
 using System.Collections;
 
 public class Help : MonoBehaviour {
 
+    public GameObject titleMenu;
+
     // textures assigned in unity inspector
     public Texture backgroundTexture;
     public Texture backButtonTexture;
+
+
 
     void OnGUI()
     {
@@ -20,7 +24,8 @@ public class Help : MonoBehaviour {
         float height = 0.065f * Screen.height;
         if( GUI.Button(new Rect((Screen.width - width) / 2, (int)(Screen.height * 0.9), width, height), backButtonTexture, GUIStyle.none))
         {
-            Application.LoadLevel("TitleMenu");
+            titleMenu.SetActive(true);
+            gameObject.SetActive(false);
         }
 
     }

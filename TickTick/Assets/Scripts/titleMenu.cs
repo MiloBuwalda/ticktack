@@ -1,12 +1,15 @@
 ﻿/// <summary>
 /// TitleMenu  (replacement for TitlemenuState.cs)
-/// Assigned to Main camera in TitleMenu scene
+/// Assigned to Child object of Main camera in menu scene
 /// </summary>
 using UnityEngine;
 using System.Collections;
 
 public class TitleMenu : MonoBehaviour
 {
+
+    public GameObject levelMenu;
+    public GameObject help;
 
     // textures assigned in unity inspector
     public Texture backgroundTexture;
@@ -23,11 +26,16 @@ public class TitleMenu : MonoBehaviour
         float height = 0.065f * Screen.height;
         if (GUI.Button(new Rect((Screen.width - width) / 2, (int)(Screen.height * 0.65), width, height), playButtonTexture, GUIStyle.none))
         {
-            Application.LoadLevel("LevelMenu");
+            levelMenu.SetActive(true);
+            gameObject.SetActive(false);
+            
         }
         if (GUI.Button(new Rect((Screen.width - width) / 2, (int)(Screen.height * 0.72), width, height), helpButtonTexture, GUIStyle.none))
         {
-            Application.LoadLevel("Help");
+
+            help.SetActive(true);
+            gameObject.SetActive(false);
+
         }
     }
 

@@ -1,6 +1,6 @@
 ﻿/// <summary>
-/// LevelMenu  (replacement for ??.cs)
-/// Assigned to Main camera in LevelSelect scene
+/// LevelMenu  (replacement for LevelMenuState.cs)
+/// Assigned to Child object of Main camera in menu scene
 /// </summary>
 
 using UnityEngine;
@@ -8,6 +8,9 @@ using System.Collections;
 
 public class LevelMenu : MonoBehaviour
 {
+
+    public GameObject titleMenu;
+
     // textures assigned in unity inspector
     public Texture backgroundTexture;
     public Texture backButtonTexture;
@@ -30,8 +33,13 @@ public class LevelMenu : MonoBehaviour
         float height = 0.065f * Screen.height;
         if (GUI.Button(new Rect((Screen.width - width) / 2, (int)(Screen.height * 0.909), width, height), backButtonTexture, GUIStyle.none))
         {
-            Application.LoadLevel("TitleMenu");
+            titleMenu.SetActive(true);
+            gameObject.SetActive(false);
         }
     }
+
+    /*
+     select levels etc
+     * /
 
 }
