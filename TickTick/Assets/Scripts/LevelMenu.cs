@@ -40,6 +40,6 @@ public class LevelMenu : MonoBehaviour
 
     /*
      select levels etc
-     * /
+     */
 
 }
