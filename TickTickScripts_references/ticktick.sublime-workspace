@@ -1,0 +1,497 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "TickTick.cs",
+			"settings":
+			{
+				"buffer_size": 1037,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "TickTick.cs.meta",
+			"settings":
+			{
+				"buffer_size": 263,
+				"line_ending": "Windows"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 164.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"package control: add rep",
+				"Package Control: Add Repository"
+			],
+			[
+				"instal",
+				"Package Control: Install Package"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"user",
+				"Preferences: Settings - User"
+			],
+			[
+				"setting",
+				"Preferences: Settings - Default"
+			],
+			[
+				"package install",
+				"Package Control: Install Package"
+			],
+			[
+				"package",
+				"Preferences: Browse Packages"
+			]
+		],
+		"width": 514.0
+	},
+	"console":
+	{
+		"height": 126.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = 'eb2297e1a458f27d836c04bb0cbaf282' + 'd0e7a3098092775ccb37ca9d6b2e4b7d'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/H/Documents/3D/Projects/Unity Projects/TickTack/TickTickScripts_references",
+		"/H/Documents/3D/Projects/Unity Projects/TickTack/TickTickScripts_references/level"
+	],
+	"file_history":
+	[
+		"/C/Users/MiloBU/ssh/git_pub.ppk",
+		"/C/Users/MiloBU/AppData/Roaming/Sublime Text 3/Packages/User/Preferences.sublime-settings",
+		"/H/Downloads/ripping tutorial John",
+		"/C/Users/MiloBU/AppData/Roaming/Sublime Text 3/Packages/User/Plain text.sublime-settings",
+		"/H/Downloads/AdministrativeSettings.xml",
+		"/C/Users/MiloBU/AppData/Local/Temp/7zOC50AD884/readme.txt",
+		"/H/Downloads/PSPaudioware Total Bundle 2015-HY2ROG3N [oddsox]/Unpacked/(HY2ROG3N).txt",
+		"/C/Users/MiloBU/AppData/Local/EpicGamesLauncher/Saved/Logs/EpicGamesLauncher.log",
+		"/C/Users/MiloBU/AppData/Local/EpicGamesLauncher/Saved/Logs/EpicGamesLauncher_2.log",
+		"/C/Users/MiloBU/AppData/Local/Temp/$PowerISO$/readme.txt",
+		"/D/readme.txt",
+		"/C/Users/MiloBU/AppData/Local/Temp/7zO8DD09480/readme.txt",
+		"/H/Program Files/Far Manager x64/Plugins/shrlnk/ReadMe.Eng",
+		"/H/Downloads/Steinberg Cubase v7.5.0 WIN x64 Incl Keygen iNTERNAL-AiR/keygen/Readme.txt",
+		"/C/Users/MiloBU/AppData/Local/Temp/7zO843F800A/Password Help !!!.txt",
+		"/H/Downloads/PowerISO 6.1 Multilingual (x86-x64) + Crack [ATOM]/ATOM.Install.Notes.Readme.txt",
+		"/C/Users/MiloBU/AppData/Local/Temp/7zOC60DBBAC/Password Help !!!.txt",
+		"/C/Program Files (x86)/Steam/SteamApps/common/dawn of war 2/Tools/SantosTools2/Readme.txt",
+		"/H/Downloads/Crowbar/ToDo - Crowbar.txt",
+		"/C/Users/MiloBU/AppData/Local/PackmanEngineFinal_GMS/test2.txt",
+		"/C/Users/MiloBU/AppData/Local/PackmanEngineFinal_GMS/test1_M.txt",
+		"/C/Users/MiloBU/AppData/Local/PackmanEngineFinal_GMS/test1.txt",
+		"/H/Downloads/games-agents.log",
+		"/H/Documents/3D/CityEngine/ce.lib/webviewer/js/esri/nls/cs/jsapi.js",
+		"/C/Users/MiloBU/AppData/Local/PackmanEngineFinal_GMS/test2_M.txt",
+		"/H/Documents/3D/Projects/Unity Projects/Games-and-Agents/Games-and-Agents/Assets/Scripts/Agent/Personality.cs.meta",
+		"/H/Documents/3D/Projects/Unity Projects/Games-and-Agents/Games-and-Agents/Assets/Scripts/Conversations/AgentNode.cs",
+		"/H/Documents/npc todo",
+		"/H/Documents/3D/Projects/Unity Projects/Games-and-Agents/Games-and-Agents/Assets/Xml/Knowledge/car.xml",
+		"/H/Documents/Autohotkey/applications.ahk",
+		"/H/Documents/Autohotkey/main.ahk",
+		"/H/Documents/Autohotkey/Explorer.ahk",
+		"/C/Users/MiloBU/Desktop/pw",
+		"/H/Documents/Joram DBcard nummers",
+		"/C/Users/MiloBU/AppData/Roaming/Skype/My Skype Received Files/test.xml",
+		"/H/Documents/Autohotkey/autohotkey.sublime-project",
+		"/H/Documents/Autohotkey/web.ahk",
+		"/H/Downloads/vlada81_vs_MiloBu_2015_04_19.pgn",
+		"/H/Documents/3D/Projects/UnrealEngine/Unreal_Random/README.md",
+		"/H/Documents/AutoHotkey.ahk",
+		"/H/Documents/Programming/Web/Tim/supa/dupa/fun.css",
+		"/C/Users/MiloBU/AppData/Roaming/Sublime Text 3/Packages/Default/Preferences.sublime-settings"
+	],
+	"find":
+	{
+		"height": 41.0
+	},
+	"find_in_files":
+	{
+		"height": 104.0,
+		"where_history":
+		[
+			"H:\\Documents\\Autohotkey"
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"error",
+			"&\"'\"&\"!\"&",
+			"&F",
+			"&M",
+			"&L",
+			"&K",
+			"&J",
+			"&I",
+			"&H",
+			"&G",
+			"&F",
+			"&E",
+			",",
+			":",
+			",",
+			":",
+			",",
+			":",
+			",",
+			":",
+			",",
+			":",
+			",",
+			":",
+			",",
+			"#",
+			"<",
+			"PIN",
+			".*\\n.*\\n",
+			"*.\\n"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": true,
+		"replace_history":
+		[
+			"&G",
+			"G",
+			"&N",
+			"&M",
+			"&L",
+			"&K",
+			"&J",
+			"&I",
+			"&H",
+			"&G",
+			"&F",
+			"\\t"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "TickTick.cs",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1037,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content"
+							],
+							"syntax": "Packages/C#/C#.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "TickTick.cs.meta",
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 263,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"auto_complete_triggers":
+							[
+								{
+									"characters": "<",
+									"selector": "text.html"
+								},
+								{
+									"characters": ".#",
+									"selector": "text.html"
+								}
+							],
+							"bh_regions":
+							[
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content"
+							],
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 31.0
+	},
+	"input":
+	{
+		"height": 37.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.CSS Extended Completions":
+	{
+		"height": 0.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "ticktick.sublime-project",
+	"replace":
+	{
+		"height": 74.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"",
+				"H:\\Documents\\Programming\\Web\\Tim\\Tim.sublime-project"
+			]
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 213.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
