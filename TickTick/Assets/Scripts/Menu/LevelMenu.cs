@@ -25,10 +25,14 @@ public class LevelMenu : MonoBehaviour
 
     public void LevelButtonClick(int id)
     {
-        setButtontexture(solvedLevel, id);
+        if (id == 0)
+        {
+           // SetButtonTexture(solvedLevel, 0);
+            Application.LoadLevel("AssetLevel");
+        }
     }
 
-    private void setButtontexture(Sprite texture, int buttonID)
+    private void SetButtonTexture(Sprite texture, int buttonID)
     {
         levelButtons[buttonID].image.sprite = texture;
     }
