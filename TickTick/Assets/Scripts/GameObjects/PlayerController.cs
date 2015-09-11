@@ -8,9 +8,9 @@ public class PlayerController : MonoBehaviour
     public bool facingRight = true;
     [HideInInspector]
     public bool jump = false;
-    public float moveForce = 365f;
+    public float moveForce = 200f;
     public float maxSpeed = 5f;
-    public float jumpForce = 1000f;
+    public float jumpForce = 500f;
     public Transform groundCheck;
 
 
