@@ -4,13 +4,12 @@ using System.Collections;
 public class PlayerController : MonoBehaviour
 {
 
-    [HideInInspector]
-    public bool facingRight = true;
-    [HideInInspector]
-    public bool jump = false;
+    [HideInInspector]	public bool facingRight = true;
+    [HideInInspector]	public bool jump = false;
     public float moveForce = 200f;
     public float maxSpeed = 5f;
     public float jumpForce = 500f;
+	public float animationSpeed = 2f;
     public Transform groundCheck;
 
 
@@ -24,14 +23,16 @@ public class PlayerController : MonoBehaviour
     {
         anim = GetComponent<Animator>();
         rb2d = GetComponent<Rigidbody2D>();
+		anim.speed = animationSpeed; 
     }
 
     // Update is called once per frame
     void Update()
     {
         grounded = Physics2D.Linecast(transform.position, groundCheck.position, 1 << LayerMask.NameToLayer("Ground"));
-
-        if (Input.GetButtonDown("Jump") && grounded)
+		Debug.Log ("grounded: " + grounded);
+		Debug.Log ("jump: " + jump);
+		if (Input.GetButtonDown("Jump") && grounded)
         {
             jump = true;
         }
@@ -57,6 +58,7 @@ public class PlayerController : MonoBehaviour
         if (jump)
         {
             anim.SetTrigger("Jump");
+			anim.speed = 1;
             rb2d.AddForce(new Vector2(0f, jumpForce));
             jump = false;
         }
