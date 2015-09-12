@@ -7,11 +7,8 @@ using System.Collections;
 
 public class Help : MonoBehaviour {
 
-    public GameObject titleMenu;
-
     public void BackButtonClick()
     {
-        titleMenu.SetActive(true);
-        gameObject.SetActive(false);
+        GameStateManager.instance.SwitchTo(GameState.TitleMenu);
     }
 }

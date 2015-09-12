@@ -23,13 +23,33 @@ public class LevelMenu : MonoBehaviour
         gameObject.SetActive(false);
     }
 
+    void OnEnable()
+    {
+
+        SetButtonTextures();
+    }
+
+    private void SetButtonTextures()
+    {
+        List<Level> levels = LevelManager.instance.Levels;
+        for (int i = 0; i < levelButtons.Length; i++)
+        {
+            
+            if (i <= levels.Count)
+            {
+                if (levels[i].Locked)
+                    SetButtonTexture(lockedLevel, i);
+                else if (levels[i].Solved)
+                    SetButtonTexture(solvedLevel, i);
+                else
+                    SetButtonTexture(unsolvedLevel, i);
+            }
+        }
+    }
+
     public void LevelButtonClick(int id)
     {
-        if (id == 0)
-        {
-           // SetButtonTexture(solvedLevel, 0);
-            Application.LoadLevel("AssetLevel");
-        }
+        
     }
 
     private void SetButtonTexture(Sprite texture, int buttonID)

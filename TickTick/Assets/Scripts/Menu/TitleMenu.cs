@@ -7,19 +7,13 @@ using System.Collections;
 
 public class TitleMenu : MonoBehaviour
 {
-
-    public GameObject levelMenu;
-    public GameObject help;
-
     public void PlayButtonClick()
     {
-        levelMenu.SetActive(true);
-        gameObject.SetActive(false);
+        GameStateManager.instance.SwitchTo(GameState.LevelMenu);
     }
 
     public void HelpButtonClick()
     {
-        help.SetActive(true);
-        gameObject.SetActive(false);
+        GameStateManager.instance.SwitchTo(GameState.HelpMenu);
     }
 }
