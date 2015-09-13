@@ -47,14 +47,16 @@ public class LevelMenu : MonoBehaviour
         }
     }
 
-    public void LevelButtonClick(int id)
+    public void LevelButtonClick(int levelIndex)
     {
-        
+        LevelManager.instance.CurrentLevelIndex = levelIndex;
+        Debug.Log("click1");
+        GameStateManager.instance.SwitchTo(GameState.PlayingState);
     }
 
-    private void SetButtonTexture(Sprite texture, int buttonID)
+    private void SetButtonTexture(Sprite texture, int levelIndex)
     {
-        levelButtons[buttonID].image.sprite = texture;
+        levelButtons[levelIndex].image.sprite = texture;
     }
 
 }

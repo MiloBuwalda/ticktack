@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-using System.Collections;
+using System.Collections.Generic;
 
 public class GameStateManager : MonoBehaviour {
 
@@ -7,7 +7,6 @@ public class GameStateManager : MonoBehaviour {
     public GameObject titleMenu;
     public GameObject helpMenu;
     public GameObject levelMenu;
-    public GameObject level;
 
     private GameState currentGameState;
 
@@ -40,9 +39,9 @@ public class GameStateManager : MonoBehaviour {
             case GameState.TitleMenu: SwitchToMenu(titleMenu); break;
             case GameState.LevelMenu: SwitchToMenu(levelMenu); break;
             case GameState.HelpMenu: SwitchToMenu(helpMenu); break;
-            case GameState.PlayingState: break;
-            case GameState.GameOverState: break;
-            case GameState.LevelFinishedState: break;
+            case GameState.PlayingState: SwitchToPlaying();  break;
+            case GameState.GameOverState: throw new System.NotImplementedException();  //break;
+            case GameState.LevelFinishedState: throw new System.NotImplementedException();  //break;
         }
         currentGameState = targetGameState;
     }
@@ -51,7 +50,8 @@ public class GameStateManager : MonoBehaviour {
     private void SwitchToMenu(GameObject menu)
     {
         menu.SetActive(true);
-        level.SetActive(false);
+        Debug.Log("before disable");
+        DisableLevels();
 
         if( menu != titleMenu)
             titleMenu.SetActive(false);
@@ -68,11 +68,21 @@ public class GameStateManager : MonoBehaviour {
         helpMenu.SetActive(false);
         levelMenu.SetActive(false);
 
-        level.SetActive(true);
-        
-        // load level
+        int index = LevelManager.instance.CurrentLevelIndex;
+        DisableLevels();
+        Debug.Log(index);
+        LevelManager.instance.Levels[index].LevelObject.SetActive(true);
     }
 
+    private void DisableLevels()
+    {
+        List<Level> levels = LevelManager.instance.Levels;
+        for (int i = 0; i < levels.Count; i++)
+        {
+            levels[i].LevelObject.SetActive(false);
+            //reset
+        }
+    }
 
 
     public GameState CurrentGameState

@@ -17,8 +17,10 @@ public class LevelManager : MonoBehaviour {
         {
             instance = this;
             DontDestroyOnLoad(gameObject);
+            levels = new List<Level>();
         }
         else Destroy(this); // or gameObject
+
     }
 
 	// Use this for initialization
@@ -61,7 +63,7 @@ public class LevelManager : MonoBehaviour {
             if (value >= 0 && value < levels.Count)
             {
                 currentLevelIndex = value;
-               // CurrentLevel.Reset();
+                //CurrentLevel.Reset();
             }
         }
     }

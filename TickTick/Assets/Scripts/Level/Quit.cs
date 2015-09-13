@@ -8,7 +8,7 @@ public class Quit : MonoBehaviour {
 
     public void QuitButtonClick()
     {
-        Application.LoadLevel("Menu");
+        GameStateManager.instance.SwitchTo(GameState.LevelMenu);
     }
 
 

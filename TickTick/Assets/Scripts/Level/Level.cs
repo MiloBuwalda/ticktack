@@ -1,32 +1,62 @@
 ﻿using UnityEngine;
-using System.Collections;
+using System.Collections.Generic;
 
-public class Level  {
+public partial class Level  {
 
     protected bool locked, solved;
     //protected Button quitButton
 
+    public GameObject LevelObject;
+
+    private List<GameObject> backgrounds;
+    private GameObject timer;
+    private List<GameObject> waterdrops = new List<GameObject>();
+    private List<GameObject> enemies;
+    private TileField tiles;
+    private GameObject player;
+    private GameObject end;
+
     public Level(int levelIndex)
     {
+        LevelObject = new GameObject("Level" + levelIndex);
+        LevelObject.SetActive(false);
+        LevelObject.transform.SetParent(LevelManager.instance.gameObject.transform);
         // load the backgrounds
-     /*   GameObjectList backgrounds = new GameObjectList(0, "backgrounds");
-        SpriteGameObject background_main = new SpriteGameObject("Backgrounds/spr_sky");
-        background_main.Position = new Vector2(0, GameEnvironment.Screen.Y - background_main.Height);
+        backgrounds = new List<GameObject>();
+     //   GameObjectList backgrounds = new GameObjectList(0, "backgrounds");
+       // SpriteGameObject background_main = new SpriteGameObject("Backgrounds/spr_sky");
+        GameObject background_main = MonoBehaviour.Instantiate(Resources.Load("Prefabs/BackgroundCanvas")) as GameObject;
+        background_main.transform.SetParent(LevelObject.transform, true);
+
+      //  background_main.Position = new Vector2(0, GameEnvironment.Screen.Y - background_main.Height);
         backgrounds.Add(background_main);
+
 
         // add a few random mountains
         for (int i = 0; i < 5; i++)
         {
-            SpriteGameObject mountain = new SpriteGameObject("Backgrounds/spr_mountain_" + (GameEnvironment.Random.Next(2) + 1), 1);
-            mountain.Position = new Vector2((float)GameEnvironment.Random.NextDouble() * GameEnvironment.Screen.X - mountain.Width / 2, GameEnvironment.Screen.Y - mountain.Height);
+            GameObject mountain = MonoBehaviour.Instantiate(Resources.Load("Prefabs/BackgroundObjects/Mountain" + (Random.Range(1,3)))) as GameObject;
+            //mountain.Position = new Vector2((float)GameEnvironment.Random.NextDouble() * GameEnvironment.Screen.X - mountain.Width / 2, GameEnvironment.Screen.Y - mountain.Height);
+            Vector3 mountainSize = mountain.GetComponent<SpriteRenderer>().bounds.size;
+            mountain.transform.position = Camera.main.ScreenToWorldPoint(new Vector3 (Random.value * Screen.width - mountainSize.x / 2, 0, 10));
+            mountain.transform.SetParent(LevelObject.transform, true);
             backgrounds.Add(mountain);
         }
 
-        Clouds clouds = new Clouds(2);
-        backgrounds.Add(clouds);
-        this.Add(backgrounds);
 
-        SpriteGameObject timerBackground = new SpriteGameObject("Sprites/spr_timer", 100);
+
+        for (int i = 0; i < 3; i++)
+        {
+            GameObject cloud = MonoBehaviour.Instantiate(Resources.Load("Prefabs/BackgroundObjects/Clouds")) as GameObject;
+            cloud.transform.SetParent(LevelObject.transform, true);
+            backgrounds.Add(cloud);
+        }
+
+
+        timer = MonoBehaviour.Instantiate(Resources.Load("Prefabs/Overlay/Timer")) as GameObject;
+        timer.transform.SetParent(LevelObject.transform, true);
+
+        /*SpriteGameObject timerBackground = new SpriteGameObject("Sprites/spr_timer", 100);
         timerBackground.Position = new Vector2(10, 10);
         this.Add(timerBackground);
         TimerGameObject timer = new TimerGameObject(101, "timer");
@@ -39,10 +69,9 @@ public class Level  {
 
 
         this.Add(new GameObjectList(1, "waterdrops"));
-        this.Add(new GameObjectList(2, "enemies"));
+        this.Add(new GameObjectList(2, "enemies"));*/
 
-        this.LoadTiles("Content/Levels/" + levelIndex + ".txt");
-      * */
+        this.LoadTiles("Levels/" + levelIndex);
     }
 
     public bool Completed
