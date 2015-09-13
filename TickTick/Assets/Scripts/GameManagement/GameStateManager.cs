@@ -80,7 +80,9 @@ public class GameStateManager : MonoBehaviour {
     private void EnableLevel(int index)
     {
         DisableLevels();
+        LevelManager.instance.Levels[index].Reset();
         LevelManager.instance.Levels[index].LevelObject.SetActive(true);
+
     }
 
     private void DisableLevels()

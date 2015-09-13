@@ -18,6 +18,7 @@ public partial class Level  {
     private TileField tiles;
     private GameObject player;
     private GameObject end;
+    private GameObject hint;
 
     public Level(int levelIndex)
     {

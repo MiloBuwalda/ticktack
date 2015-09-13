@@ -29,7 +29,6 @@ public class TileField  {
         {
             if (obj.gameObject != null)
             {
-                Vector3 extents = obj.gameObject.GetComponent<SpriteRenderer>().bounds.extents; 
                 Vector3 position =  new Vector3(((float)x + 0.5f) * cellWidth, Screen.height - (y + 0.5f) * cellHeight, 10);
                 obj.gameObject.transform.position = Camera.main.ScreenToWorldPoint(position);
             }

@@ -38,11 +38,14 @@ public class Timer : MonoBehaviour {
     
 	}
 
+    void OnEnable()
+    {
+        Reset();
+    }
 
 
     public  void Reset()
     {
-        //base.Reset();
         timeLeft = 30;
         this.running = true;
     }

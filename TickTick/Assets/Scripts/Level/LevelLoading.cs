@@ -32,22 +32,11 @@ public partial class Level
         GameObject quit = MonoBehaviour.Instantiate(Resources.Load("Prefabs/Quit")) as GameObject;
         quit.transform.SetParent(LevelObject.transform, true);
 
-        /* TODO add hint
-         * 
-        GameObjectList hintfield = new GameObjectList(100);
-        this.Add(hintfield);
-        string hint = textlines[textlines.Count - 1];
-        SpriteGameObject hint_frame = new SpriteGameObject("Overlays/spr_frame_hint", 1);
-        hintfield.Position = new Vector2((GameEnvironment.Screen.X - hint_frame.Width) / 2, 10);
-        hintfield.Add(hint_frame);
-        TextGameObject hintText = new TextGameObject("Fonts/HintFont", 2);
-        hintText.Text = textlines[textlines.Count - 1];
-        hintText.Position = new Vector2(120, 25);
-        hintText.Color = Color.Black;
-        hintfield.Add(hintText);
-        VisibilityTimer hintTimer = new VisibilityTimer(hintfield, 1, "hintTimer");
-        this.Add(hintTimer);
-        */
+
+        hint = MonoBehaviour.Instantiate(Resources.Load("Prefabs/Overlay/Hint")) as GameObject;
+        hint.transform.SetParent(LevelObject.transform, true);
+        hint.GetComponent<Hint>().Text = textlines[textlines.Count - 1];
+        
 
         for (int x = 0; x < width; ++x)
             for (int y = 0; y < textlines.Count - 1; ++y)

@@ -7,11 +7,13 @@ using System.Collections;
 
 public class WaterDrop : MonoBehaviour {
 
+    public AudioClip CollectSound;
     private float bounce;
+    private bool visible;
 
 	// Use this for initialization
 	void Start () {
-	
+        visible = true;
 	}
 
     void FixedUpdate()
@@ -24,15 +26,28 @@ public class WaterDrop : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-       
+
         /*
          * TODO
-         * Player player = GameWorld.Find("player") as Player;
-        if (this.visible && this.CollidesWith(player))
+         */ 
+        bool collidesWithPlayer = false;
+
+        if (this.visible && collidesWithPlayer /* this.CollidesWith(player)*/)
         {
-            this.visible = false;
-            GameEnvironment.AssetManager.PlaySound("Sounds/snd_watercollected");
+            visible = false;
+            gameObject.GetComponent<SpriteRenderer>().enabled = visible;
+            AudioSource.PlayClipAtPoint(CollectSound, transform.position);
+            
         }
-         * */
-	}
+    }
+
+
+    public void Reset()
+    {
+        if (!visible)
+        {
+            visible = true;
+            gameObject.GetComponent<SpriteRenderer>().enabled = visible;
+        }
+    }
 }
