@@ -37,9 +37,12 @@ public partial class Level  {
         for (int i = 0; i < 5; i++)
         {
             GameObject mountain = MonoBehaviour.Instantiate(Resources.Load("Prefabs/BackgroundObjects/Mountain" + (Random.Range(1,3)))) as GameObject;
-            Vector3 mountainSize = mountain.GetComponent<SpriteRenderer>().bounds.size;
-            mountain.transform.position = Camera.main.ScreenToWorldPoint(new Vector3 (Random.value * Screen.width - mountainSize.x / 2, 0, 10));
             mountain.transform.SetParent(LevelObject.transform, true);
+            // TODO nicer way to get correct sprite dimensions
+            Vector3 min = Camera.main.WorldToScreenPoint(mountain.GetComponent<SpriteRenderer>().bounds.min);
+            Vector3 max = Camera.main.WorldToScreenPoint(mountain.GetComponent<SpriteRenderer>().bounds.max);
+            Vector3 dif = max - min;
+            mountain.transform.position = Camera.main.ScreenToWorldPoint(new Vector3 (Random.value * Screen.width , dif.y / 2f, 10));
             backgrounds.Add(mountain);
         }
 
