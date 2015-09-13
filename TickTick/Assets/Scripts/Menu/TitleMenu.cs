@@ -1,6 +1,6 @@
 ﻿/// <summary>
-/// TitleMenu  (replacement for TitlemenuState.cs)
-/// Assigned to Child object of Main camera in menu scene
+/// TitleMenu  handles input that was found in TitlemenuState.cs
+/// Assigned to TitleMenu canvas in scene
 /// </summary>
 using UnityEngine;
 using System.Collections;

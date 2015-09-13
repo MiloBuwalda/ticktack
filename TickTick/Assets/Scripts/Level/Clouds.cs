@@ -1,4 +1,8 @@
-﻿using UnityEngine;
+﻿/// <summary>
+/// Class to control the behaviour of clouds
+/// </summary>
+
+using UnityEngine;
 using System.Collections.Generic;
 
 public class Clouds : MonoBehaviour {
@@ -11,18 +15,18 @@ public class Clouds : MonoBehaviour {
 	void Start () {
         if(cloudSprites.Count > 0 )
         {
-            Vector3 pos = Camera.main.WorldToScreenPoint(transform.position);
             SetRandomSprite();
             velocity = RandomXVelocity();
             transform.position = Camera.main.ScreenToWorldPoint(new Vector3(RandomX(), RandomY(), 10));       
         }
 	}
-	
-	// Update is called once per frame
-	void Update () {
 
+    // TODO  fix cloud respawn bug
+
+    void FixedUpdate()
+    {
         // left and right edge of sprite in screen coordinates
-        float left  = Camera.main.WorldToScreenPoint(GetComponent<SpriteRenderer>().bounds.min).x;
+        float left = Camera.main.WorldToScreenPoint(GetComponent<SpriteRenderer>().bounds.min).x;
         float right = Camera.main.ScreenToWorldPoint(GetComponent<SpriteRenderer>().bounds.max).x;
 
         // moving out of bounds
@@ -45,6 +49,12 @@ public class Clouds : MonoBehaviour {
             // move the cloud
             transform.position = new Vector3(transform.position.x + velocity * Time.deltaTime, transform.position.y, transform.position.z);
         }
+    }
+
+	// Update is called once per frame
+	void Update () {
+
+        
 	}
 
     private void SetRandomSprite()
@@ -62,7 +72,7 @@ public class Clouds : MonoBehaviour {
     private float RandomY()
     {
         Vector3 extents = GetComponent<SpriteRenderer>().bounds.extents; // extents is size /2
-        return Screen.height - (Random.value * Screen.height - extents.y); //TODO check if this sin't upside down
+        return Screen.height - (Random.value * Screen.height - extents.y); //TODO re-check this position
     }
 
     private float RandomXVelocity()

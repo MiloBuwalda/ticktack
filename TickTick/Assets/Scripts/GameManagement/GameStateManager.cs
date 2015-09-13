@@ -1,9 +1,16 @@
-﻿using UnityEngine;
+﻿/// <summary>
+/// inspired by the GameStateManager in the xna version
+/// handles the changing of gamestates and enables/disables gameobjects to create a state in the scene
+/// </summary>
+
+using UnityEngine;
 using System.Collections.Generic;
+
+
 
 public class GameStateManager : MonoBehaviour {
 
-    // set in unity inspector
+    // Objects set in unity inspector
     public GameObject titleMenu;
     public GameObject helpMenu;
     public GameObject levelMenu;
@@ -50,7 +57,6 @@ public class GameStateManager : MonoBehaviour {
     private void SwitchToMenu(GameObject menu)
     {
         menu.SetActive(true);
-        Debug.Log("before disable");
         DisableLevels();
 
         if( menu != titleMenu)
@@ -68,9 +74,12 @@ public class GameStateManager : MonoBehaviour {
         helpMenu.SetActive(false);
         levelMenu.SetActive(false);
 
-        int index = LevelManager.instance.CurrentLevelIndex;
+        EnableLevel(LevelManager.instance.CurrentLevelIndex);
+    }
+
+    private void EnableLevel(int index)
+    {
         DisableLevels();
-        Debug.Log(index);
         LevelManager.instance.Levels[index].LevelObject.SetActive(true);
     }
 
@@ -80,7 +89,7 @@ public class GameStateManager : MonoBehaviour {
         for (int i = 0; i < levels.Count; i++)
         {
             levels[i].LevelObject.SetActive(false);
-            //reset
+            //TODO reset level here
         }
     }
 

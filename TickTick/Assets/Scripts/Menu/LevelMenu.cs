@@ -1,6 +1,6 @@
 ﻿/// <summary>
-/// LevelMenu  (replacement for LevelMenuState.cs)
-/// Assigned to Child object of Main camera in menu scene
+/// LevelMenu  (replaces input functionality from LevelMenuState.cs)
+/// Assigned to LevelMenu canvas in scene
 /// </summary>
 
 using UnityEngine;
@@ -10,7 +10,7 @@ using UnityEngine.UI;
 public class LevelMenu : MonoBehaviour
 {
 
-    public GameObject titleMenu;
+    // Sprites & buttons assigned in unity inspector
     public Sprite lockedLevel;
     public Sprite unsolvedLevel;
     public Sprite solvedLevel;
@@ -19,16 +19,16 @@ public class LevelMenu : MonoBehaviour
 
     public void BackButtonClick()
     {
-        titleMenu.SetActive(true);
-        gameObject.SetActive(false);
+        GameStateManager.instance.SwitchTo(GameState.TitleMenu);
     }
 
+    // refresh button images when levelMenu shows up
     void OnEnable()
     {
-
         SetButtonTextures();
     }
 
+    // change the button texture instead of creating a new button
     private void SetButtonTextures()
     {
         List<Level> levels = LevelManager.instance.Levels;

@@ -1,4 +1,9 @@
-﻿using UnityEngine;
+﻿/// <summary>
+/// port of LevelLoading.cs in xna version
+/// responsible for creating entities in a level
+/// </summary>
+
+using UnityEngine;
 using System.Collections.Generic;
 using System.Text;
 using System.IO;
@@ -7,6 +12,7 @@ public partial class Level
 {
     public void LoadTiles(string path)
     {
+        // read level file
         int width;
         List<string> textlines = new List<string>();
         TextAsset data = Resources.Load(path) as TextAsset;
@@ -22,7 +28,8 @@ public partial class Level
 
         tiles = new TileField(textlines.Count - 1, width);
 
-        /*
+        /* TODO add hint & timer
+         * 
         GameObjectList hintfield = new GameObjectList(100);
         this.Add(hintfield);
         string hint = textlines[textlines.Count - 1];
@@ -37,11 +44,6 @@ public partial class Level
         VisibilityTimer hintTimer = new VisibilityTimer(hintfield, 1, "hintTimer");
         this.Add(hintTimer);
         */
-
-        
-        //this.Add(tiles);
-      //  tiles.CellWidth = 72;
-        //tiles.CellHeight = 55;
 
         for (int x = 0; x < width; ++x)
             for (int y = 0; y < textlines.Count - 1; ++y)
@@ -90,7 +92,7 @@ public partial class Level
             case 'C':
                 return LoadFlameTile(x, y, tileType);*/
             default:
-                 return null; //new Tile("");
+                 return new Tile();
         }
     }
 
@@ -174,11 +176,9 @@ public partial class Level
         GameObject w = MonoBehaviour.Instantiate(Resources.Load("Prefabs/LevelObjects/Water")) as GameObject;
          w.transform.SetParent(LevelObject.transform, true);
 
-       //  w.Origin = w.Center;
+       //  w.Origin = w.Center; ??
          Vector3 position = new Vector3(x * tiles.CellWidth, Screen.height - y * tiles.CellHeight + 10, 10);
          position += new Vector3(tiles.CellWidth, - tiles.CellHeight, 0) / 2;
-         //w.Position = new Vector2(x * tiles.CellWidth, y * tiles.CellHeight - 10);
-         //w.Position += new Vector2(tiles.CellWidth, tiles.CellHeight) / 2;
          w.transform.position = Camera.main.ScreenToWorldPoint(position);
          waterdrops.Add(w);
          return new Tile();

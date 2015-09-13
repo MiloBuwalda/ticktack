@@ -1,4 +1,8 @@
-﻿using UnityEngine;
+﻿/// <summary>
+/// Controls the behaviour (bounce) of the water
+/// </summary>
+
+using UnityEngine;
 using System.Collections;
 
 public class WaterDrop : MonoBehaviour {
@@ -9,15 +13,21 @@ public class WaterDrop : MonoBehaviour {
 	void Start () {
 	
 	}
-	
 
-	// Update is called once per frame
-	void Update () {
+    void FixedUpdate()
+    {
         float t = Time.realtimeSinceStartup * 3.0f + Camera.main.WorldToScreenPoint(gameObject.transform.position).x;
         bounce = Mathf.Sin(t) * 0.002f;
         transform.position = new Vector3(transform.position.x, transform.position.y + bounce, transform.position.z);
+    }
+
+
+	// Update is called once per frame
+	void Update () {
        
-        /*Player player = GameWorld.Find("player") as Player;
+        /*
+         * TODO
+         * Player player = GameWorld.Find("player") as Player;
         if (this.visible && this.CollidesWith(player))
         {
             this.visible = false;

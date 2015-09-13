@@ -1,6 +1,6 @@
 ﻿/// <summary>
-/// Help  (replacement for HelpState.cs)
-/// Assigned to Child object of Main camera in menu scene
+/// Help  (implements input from HelpState.cs)
+/// Assigned to Help canvas in scene
 /// </summary>
 using UnityEngine;
 using System.Collections;

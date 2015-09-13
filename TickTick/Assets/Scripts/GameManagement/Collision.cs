@@ -1,4 +1,8 @@
-﻿using UnityEngine;
+﻿/// <summary>
+/// Direct port of xna collission.cs
+/// </summary>
+
+using UnityEngine;
 using System.Collections;
 
 public class Collision {

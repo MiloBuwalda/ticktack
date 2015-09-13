@@ -1,4 +1,9 @@
-﻿using UnityEngine;
+﻿/// <summary>
+/// Port of tile.cs in xna version
+/// with added unity GameObject for in the scene
+/// </summary>
+
+using UnityEngine;
 using System.Collections;
 
 public enum TileType

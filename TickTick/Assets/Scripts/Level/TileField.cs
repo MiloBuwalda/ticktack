@@ -1,4 +1,8 @@
-﻿using UnityEngine;
+﻿/// <summary>
+/// A grid for the object in a level, (ported from xna version TileField.cs & ObjectGrid.cs)
+/// </summary>
+
+using UnityEngine;
 using System.Collections;
 
 public class TileField  {
@@ -20,8 +24,8 @@ public class TileField  {
     public void Add(Tile obj, int x, int y)
     {
         grid[x, y] = obj;
-        //obj.Parent = this;
-        if (obj != null)
+        
+        if (obj != null) // TODO remove these debug if statements
         {
             if (obj.gameObject != null)
             {
@@ -30,7 +34,6 @@ public class TileField  {
                 obj.gameObject.transform.position = Camera.main.ScreenToWorldPoint(position);
             }
         }
-        
     }
 
     public Tile Get(int x, int y)
@@ -80,7 +83,8 @@ public class TileField  {
         set { cellHeight = value; }
     }
 
-  /*  public override void Reset()
+  /*  TODO
+   * public override void Reset()
     {
         base.Reset();
         foreach (GameObject obj in grid)

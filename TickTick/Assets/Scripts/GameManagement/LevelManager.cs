@@ -1,10 +1,15 @@
-﻿using UnityEngine;
+﻿/// <summary>
+/// Responsible for loading and creating levels
+/// Shares functionality with PlayingState.cs in the xna version
+/// </summary>
+
+using UnityEngine;
 using System.Collections.Generic;
 using System.IO;
 
 public class LevelManager : MonoBehaviour {
 
-    protected List<Level> levels;
+    protected List<Level> levels = new List<Level>();
     protected int currentLevelIndex;
     protected int numberOfLevels = 10;
 
@@ -17,7 +22,6 @@ public class LevelManager : MonoBehaviour {
         {
             instance = this;
             DontDestroyOnLoad(gameObject);
-            levels = new List<Level>();
         }
         else Destroy(this); // or gameObject
 
@@ -25,16 +29,15 @@ public class LevelManager : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        levels = new List<Level>();
-        PlayerPrefs.DeleteAll();
         LoadLevels();
         LoadLevelsStatus();
-
 	}
 	
 	// Update is called once per frame
 	void Update () {
-	     //CurrentLevel.Update(gameTime);
+        //TODO implement this down here
+	     
+        //CurrentLevel.Update(gameTime);
        /* if (CurrentLevel.GameOver)
             GameStateManager.instance.SwitchTo(GameState.GameOverState);
         else if (CurrentLevel.Completed)
@@ -63,7 +66,7 @@ public class LevelManager : MonoBehaviour {
             if (value >= 0 && value < levels.Count)
             {
                 currentLevelIndex = value;
-                //CurrentLevel.Reset();
+                //TODO  CurrentLevel.Reset();
             }
         }
     }
@@ -81,12 +84,13 @@ public class LevelManager : MonoBehaviour {
 
    /* public virtual void Reset()
     {
+    * TODO
         CurrentLevel.Reset();
     }*/
 
     public void NextLevel()
     {
-        // CurrentLevel.Reset();
+        // TODO CurrentLevel.Reset();
         if (currentLevelIndex >= levels.Count - 1)
             GameStateManager.instance.SwitchTo(GameState.LevelMenu);
         else
@@ -97,13 +101,14 @@ public class LevelManager : MonoBehaviour {
         WriteLevelsStatus();
     }
 
+    // load all levels from their text files
     public void LoadLevels()
     {
         for (int currLevel = 1; currLevel <= numberOfLevels; currLevel++)
             levels.Add(new Level(currLevel));
     }
 
-
+    // load the status of locked/solved levels from the unity player preferences (persistent storage)
     public void LoadLevelsStatus()
     {
         for (int i = 0; i < levels.Count; i++)
@@ -151,6 +156,7 @@ public class LevelManager : MonoBehaviour {
         }
     }
 
+    // development method for testing levels
     private void UnlockAllLevels()
     {
         for (int i = 0; i < levels.Count; i++)
