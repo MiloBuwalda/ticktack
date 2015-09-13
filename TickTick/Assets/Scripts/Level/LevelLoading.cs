@@ -28,7 +28,11 @@ public partial class Level
 
         tiles = new TileField(textlines.Count - 1, width);
 
-        /* TODO add hint & timer
+
+        GameObject quit = MonoBehaviour.Instantiate(Resources.Load("Prefabs/Quit")) as GameObject;
+        quit.transform.SetParent(LevelObject.transform, true);
+
+        /* TODO add hint
          * 
         GameObjectList hintfield = new GameObjectList(100);
         this.Add(hintfield);
