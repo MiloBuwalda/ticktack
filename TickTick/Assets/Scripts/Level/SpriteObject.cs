@@ -17,7 +17,8 @@ public abstract class SpriteObject : MonoBehaviour {
 	// Use this for initialization
 	protected void Start () {
         velocity = Vector2.zero;
-        screenPosition = Vector2.zero;
+        Vector3 screenPos = Camera.main.WorldToScreenPoint(transform.position);
+        screenPosition = new Vector2(screenPos.x, screenPos.y);
         calcDimensions();
         screenMinWorld = Camera.main.ScreenToWorldPoint(new Vector3(0, 0, screenDepth));
         screenMaxWorld = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, screenDepth));

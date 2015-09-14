@@ -116,12 +116,14 @@ public class LevelManager : MonoBehaviour {
 
     public void SetGameOverOverlay(bool enabled)
     {
-        gameOverOverlay.SetActive(enabled);
+        if(gameOverOverlay != null)
+            gameOverOverlay.SetActive(enabled);
     }
 
     public void SetCompleteOverlay(bool enabled)
     {
-        completeOverlay.SetActive(enabled);
+        if(gameOverOverlay != null)
+            completeOverlay.SetActive(enabled);
     }
 
     // load all levels from their text files
