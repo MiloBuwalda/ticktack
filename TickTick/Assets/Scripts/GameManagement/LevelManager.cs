@@ -13,6 +13,9 @@ public class LevelManager : MonoBehaviour {
     protected int currentLevelIndex;
     protected int numberOfLevels = 10;
 
+    private GameObject gameOverOverlay;
+    private GameObject completeOverlay;
+
     public static LevelManager instance;
 
     // Singleton instance, to be able to call LevelManager.instance.   etc
@@ -29,10 +32,17 @@ public class LevelManager : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+        gameOverOverlay = MonoBehaviour.Instantiate(Resources.Load("Prefabs/Overlay/GameOver"), Vector3.zero, Quaternion.identity) as GameObject;
+        gameOverOverlay.transform.SetParent(gameObject.transform);
+        gameOverOverlay.SetActive(false);
+
+        completeOverlay = MonoBehaviour.Instantiate(Resources.Load("Prefabs/Overlay/Complete"), Vector3.zero, Quaternion.identity) as GameObject;
+        completeOverlay.transform.SetParent(gameObject.transform);
+        completeOverlay.SetActive(false);
+
         UnlockAllLevels(); // TODO remove this debug call
         LoadLevels();
         LoadLevelsStatus();
-
 	}
 	
 	// Update is called once per frame
@@ -103,6 +113,17 @@ public class LevelManager : MonoBehaviour {
         WriteLevelsStatus();
     }
 
+
+    public void SetGameOverOverlay(bool enabled)
+    {
+        gameOverOverlay.SetActive(enabled);
+    }
+
+    public void SetCompleteOverlay(bool enabled)
+    {
+        completeOverlay.SetActive(enabled);
+    }
+
     // load all levels from their text files
     public void LoadLevels()
     {
@@ -157,6 +178,7 @@ public class LevelManager : MonoBehaviour {
             return string.Format(string.Format("Level{0}.Locked", levelIndex));
         }
     }
+
 
     // development method for testing levels
     private void UnlockAllLevels()

@@ -26,7 +26,11 @@ public class Timer : MonoBehaviour {
         double totalSeconds = Time.deltaTime * multiplier;
         timeLeft -= (float) totalSeconds;
         if (timeLeft <= 0)
-           return;
+        {
+            // player die TODO
+            GameStateManager.instance.SwitchTo(GameState.GameOverState);
+            return;
+        }
 
         int minutes = (int) Mathf.FloorToInt(timeLeft / 60F);
         int seconds = (int) Mathf.FloorToInt(timeLeft - minutes * 60);
@@ -35,6 +39,8 @@ public class Timer : MonoBehaviour {
         timerText.color = Color.yellow;
         if (timeLeft <= 10 && (int)timeLeft % 2 == 0)
             timerText.color = Color.red;
+        
+
     
 	}
 

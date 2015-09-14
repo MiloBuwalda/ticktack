@@ -47,7 +47,7 @@ public class GameStateManager : MonoBehaviour {
             case GameState.LevelMenu: SwitchToMenu(levelMenu); break;
             case GameState.HelpMenu: SwitchToMenu(helpMenu); break;
             case GameState.PlayingState: SwitchToPlaying();  break;
-            case GameState.GameOverState: throw new System.NotImplementedException();  //break;
+            case GameState.GameOverState: SetGameOver(true); break;
             case GameState.LevelFinishedState: throw new System.NotImplementedException();  //break;
         }
         currentGameState = targetGameState;
@@ -58,6 +58,8 @@ public class GameStateManager : MonoBehaviour {
     {
         menu.SetActive(true);
         DisableLevels();
+        SetGameOver(false);
+        SetComplete(false);
 
         if( menu != titleMenu)
             titleMenu.SetActive(false);
@@ -67,12 +69,23 @@ public class GameStateManager : MonoBehaviour {
             levelMenu.SetActive(false);
     }
 
+    private void SetGameOver(bool active)
+    {
+        LevelManager.instance.SetGameOverOverlay(active);
+    }
+
+    private void SetComplete(bool active)
+    {
+        LevelManager.instance.SetCompleteOverlay(active);
+    }
 
     private void SwitchToPlaying()
     {
         titleMenu.SetActive(false);
         helpMenu.SetActive(false);
         levelMenu.SetActive(false);
+        SetGameOver(false);
+        SetComplete(false);
 
         EnableLevel(LevelManager.instance.CurrentLevelIndex);
     }
