@@ -25,6 +25,7 @@ public class Sparky : SpriteObject {
         if (idleTime <= 0)
         {
             //this.PlayAnimation("electrocute");
+            GetComponent<Animator>().Play("spr_sparky_electrocute_");
             if (velocity.y != 0)
             {
                 // falling down
@@ -34,16 +35,15 @@ public class Sparky : SpriteObject {
                 else if (yoffset >= 120.0f)
                     this.Reset();
             }
-            else //if (Current.AnimationEnded)
+            else if (false /* TODO electrocute stopped playing */)
                 velocity.y = 1;
         }
         else
         {
-           // this.PlayAnimation("idle");
+            // TODO play idle
             idleTime -= (float)Time.deltaTime;
             if (idleTime <= 0.0f)
                 velocity.y = -1;
-
         }
 
         CheckPlayerCollision();

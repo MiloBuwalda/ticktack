@@ -134,9 +134,9 @@ public partial class Level
     private Tile LoadSparkyTile(int x, int y)
     {
         GameObject sparky = MonoBehaviour.Instantiate(Resources.Load("Prefabs/Characters/Sparky")) as GameObject;
-        float initialY = (y + 1) * tiles.CellHeight - 100f;
+        float initialY = Screen.height - y * tiles.CellHeight + 100f;
         sparky.GetComponent<Sparky>().InitialY = initialY;
-        sparky.GetComponent<Sparky>().ScreenPosition = new Vector2(((float)x + 0.5f) * tiles.CellWidth, Screen.height - y * tiles.CellHeight - 100f);
+        sparky.GetComponent<Sparky>().ScreenPosition = new Vector2(((float)x + 0.5f) * tiles.CellWidth, initialY);
         sparky.transform.SetParent(LevelObject.transform, true);
         enemies.Add(sparky);
         return new Tile();
