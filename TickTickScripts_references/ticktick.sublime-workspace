@@ -16,10 +16,10 @@
 			}
 		},
 		{
-			"file": "TickTick.cs.meta",
+			"file": "gameobjects/Player.cs",
 			"settings":
 			{
-				"buffer_size": 263,
+				"buffer_size": 3920,
 				"line_ending": "Windows"
 			}
 		}
@@ -90,10 +90,16 @@
 	"expanded_folders":
 	[
 		"/H/Documents/3D/Projects/Unity Projects/TickTack/TickTickScripts_references",
-		"/H/Documents/3D/Projects/Unity Projects/TickTack/TickTickScripts_references/level"
+		"/H/Documents/3D/Projects/Unity Projects/TickTack/TickTickScripts_references/gameobjects",
+		"/H/Documents/3D/Projects/Unity Projects/TickTack/TickTickScripts_references/gameobjects/enemies",
+		"/H/Documents/3D/Projects/Unity Projects/TickTack/TickTickScripts_references/level",
+		"/H/Documents/3D/Projects/Unity Projects/TickTack/TickTickScripts_references/menu",
+		"/H/Documents/3D/Projects/Unity Projects/TickTack/TickTickScripts_references/states"
 	],
 	"file_history":
 	[
+		"/C/Users/MiloBU/Desktop/pw",
+		"/H/Documents/3D/Projects/Unity Projects/TickTack/TickTickScripts_references/ticktick.sublime-project",
 		"/C/Users/MiloBU/ssh/git_pub.ppk",
 		"/C/Users/MiloBU/AppData/Roaming/Sublime Text 3/Packages/User/Preferences.sublime-settings",
 		"/H/Downloads/ripping tutorial John",
@@ -126,7 +132,6 @@
 		"/H/Documents/Autohotkey/applications.ahk",
 		"/H/Documents/Autohotkey/main.ahk",
 		"/H/Documents/Autohotkey/Explorer.ahk",
-		"/C/Users/MiloBU/Desktop/pw",
 		"/H/Documents/Joram DBcard nummers",
 		"/C/Users/MiloBU/AppData/Roaming/Skype/My Skype Received Files/test.xml",
 		"/H/Documents/Autohotkey/autohotkey.sublime-project",
@@ -146,6 +151,7 @@
 		"height": 104.0,
 		"where_history":
 		[
+			"H:\\Documents\\3D\\Projects\\Unity Projects\\TickTack\\TickTickScripts_references",
 			"H:\\Documents\\Autohotkey"
 		]
 	},
@@ -154,6 +160,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"gameobjectlist",
 			"error",
 			"&\"'\"&\"!\"&",
 			"&F",
@@ -213,7 +220,7 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 1,
 			"sheets":
 			[
 				{
@@ -229,8 +236,8 @@
 						"selection":
 						[
 							[
-								0,
-								0
+								262,
+								262
 							]
 						],
 						"settings":
@@ -297,27 +304,27 @@
 							"syntax": "Packages/C#/C#.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 345.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 1,
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "TickTick.cs.meta",
+					"file": "gameobjects/Player.cs",
 					"semi_transient": true,
 					"settings":
 					{
-						"buffer_size": 263,
+						"buffer_size": 3920,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								2113,
+								2869
 							]
 						],
 						"settings":
@@ -336,69 +343,71 @@
 							],
 							"bh_regions":
 							[
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content",
 								"bh_c_define",
 								"bh_c_define_center",
 								"bh_c_define_open",
 								"bh_c_define_close",
 								"bh_c_define_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
 								"bh_curly",
 								"bh_curly_center",
 								"bh_curly_open",
 								"bh_curly_close",
 								"bh_curly_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
 								"bh_tag",
 								"bh_tag_center",
 								"bh_tag_open",
 								"bh_tag_close",
 								"bh_tag_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
 								"bh_angle",
 								"bh_angle_center",
 								"bh_angle_open",
 								"bh_angle_close",
 								"bh_angle_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content"
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content"
 							],
-							"syntax": "Packages/Text/Plain text.tmLanguage"
+							"syntax": "Packages/C#/C#.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 1587.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 0,
 					"type": "text"
 				}
 			]

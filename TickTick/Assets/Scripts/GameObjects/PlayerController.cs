@@ -23,15 +23,15 @@ public class PlayerController : MonoBehaviour
     {
         anim = GetComponent<Animator>();
         rb2d = GetComponent<Rigidbody2D>();
-		anim.speed = animationSpeed; 
+        //anim.speed = animationSpeed; 
     }
 
     // Update is called once per frame
     void Update()
     {
         grounded = Physics2D.Linecast(transform.position, groundCheck.position, 1 << LayerMask.NameToLayer("Ground"));
-		Debug.Log ("grounded: " + grounded);
-		Debug.Log ("jump: " + jump);
+        //Debug.Log ("grounded: " + grounded);
+        //Debug.Log ("jump: " + jump);
 		if (Input.GetButtonDown("Jump") && grounded)
         {
             jump = true;
