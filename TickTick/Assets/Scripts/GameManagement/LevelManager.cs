@@ -29,8 +29,10 @@ public class LevelManager : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+        UnlockAllLevels(); // TODO remove this debug call
         LoadLevels();
         LoadLevelsStatus();
+
 	}
 	
 	// Update is called once per frame

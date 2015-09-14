@@ -34,15 +34,15 @@ public class Sparky : SpriteObject {
                 else if (yoffset >= 120.0f)
                     this.Reset();
             }
-            /*else if (Current.AnimationEnded)
-                velocity.y = -60;*/
+            else //if (Current.AnimationEnded)
+                velocity.y = 1;
         }
         else
         {
            // this.PlayAnimation("idle");
             idleTime -= (float)Time.deltaTime;
             if (idleTime <= 0.0f)
-                velocity.y = 300;
+                velocity.y = -1;
 
         }
 

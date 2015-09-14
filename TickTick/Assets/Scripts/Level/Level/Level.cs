@@ -54,7 +54,7 @@ public partial class Level  {
             backgrounds.Add(cloud);
         }
 
-        timer = MonoBehaviour.Instantiate(Resources.Load("Prefabs/Overlay/Timer"), Camera.main.ScreenToWorldPoint(new Vector3(80,Screen.height - 50, 10)), Quaternion.identity) as GameObject;
+        timer = MonoBehaviour.Instantiate(Resources.Load("Prefabs/Overlay/Timer")) as GameObject;
         timer.transform.SetParent(LevelObject.transform);
 
         this.LoadTiles("Levels/" + levelIndex);

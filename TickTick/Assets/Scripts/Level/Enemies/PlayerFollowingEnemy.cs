@@ -14,10 +14,12 @@ public class PlayerFollowingEnemy : PatrollingEnemy
 
         GameObject playerObj = LevelManager.instance.CurrentLevel.Player;
         Player player = playerObj.GetComponent<Player>();
-
-        float direction = player.WorldPosition.x - WorldPosition.x;
-        if (Mathf.Sign(direction) != Mathf.Sign(velocity.x) && player.Velocity.x != 0.0f && velocity.x != 0.0f)
-            TurnAround();
+        if( player != null)
+        { 
+            float direction = player.WorldPosition.x - WorldPosition.x;
+            if (Mathf.Sign(direction) != Mathf.Sign(velocity.x) && player.Velocity.x != 0.0f && velocity.x != 0.0f)
+                TurnAround();
+        }
         base.Update();
     }
 

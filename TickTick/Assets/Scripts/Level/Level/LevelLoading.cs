@@ -91,9 +91,7 @@ public partial class Level
 
     private Tile LoadBasicTile(TileType tileType, bool hot = false, bool ice = false)
     {
-        Tile t = new Tile(tileType);
-        t.Hot = hot;
-        t.Ice = ice;
+        Tile t = new Tile(tileType, hot, ice);
         t.gameObject.transform.SetParent(LevelObject.transform, true);
         return t;
     }
@@ -103,8 +101,7 @@ public partial class Level
         Vector3 startPosition = new Vector3(((float)x + 0.5f) * tiles.CellWidth, Screen.height - (y ) * tiles.CellHeight, 10);
         player = MonoBehaviour.Instantiate(Resources.Load("Prefabs/Characters/Player")) as GameObject;
         player.transform.SetParent(LevelObject.transform, true);
-        player.transform.position = Camera.main.ScreenToWorldPoint(startPosition);
-        
+        player.transform.position = Camera.main.ScreenToWorldPoint(startPosition);   
         return new Tile();
     }
 
@@ -118,7 +115,7 @@ public partial class Level
             case 'C':
             default: enemy = MonoBehaviour.Instantiate(Resources.Load("Prefabs/Characters/Patrolling")) as GameObject; break;
         }
-        enemy.transform.position = Camera.main.ScreenToWorldPoint(new Vector2(((float)x + 0.5f) * tiles.CellWidth, (y + 1) * tiles.CellHeight));
+        enemy.transform.position = Camera.main.ScreenToWorldPoint(new Vector3(((float)x + 0.5f) * tiles.CellWidth, Screen.height - y * tiles.CellHeight, 10));
         enemy.transform.SetParent(LevelObject.transform, true);
         enemies.Add(enemy);
         return new Tile();
@@ -127,7 +124,7 @@ public partial class Level
     private Tile LoadTurtleTile(int x, int y)
     {
         GameObject turtle = MonoBehaviour.Instantiate(Resources.Load("Prefabs/Characters/Turtle")) as GameObject;
-        turtle.GetComponent<Turtle>().ScreenPosition = new Vector2(((float)x + 0.5f) * tiles.CellWidth, (y + 1) * tiles.CellHeight + 25.0f);
+        turtle.GetComponent<Turtle>().ScreenPosition = new Vector2(((float)x + 0.5f) * tiles.CellWidth, Screen.height - (y + 1) * tiles.CellHeight + 25.0f);
         turtle.transform.SetParent(LevelObject.transform, true);
         enemies.Add(turtle);
         return new Tile();
@@ -139,7 +136,7 @@ public partial class Level
         GameObject sparky = MonoBehaviour.Instantiate(Resources.Load("Prefabs/Characters/Sparky")) as GameObject;
         float initialY = (y + 1) * tiles.CellHeight - 100f;
         sparky.GetComponent<Sparky>().InitialY = initialY;
-        sparky.GetComponent<Sparky>().ScreenPosition = new Vector2(((float)x + 0.5f) * tiles.CellWidth, (y + 1) * tiles.CellHeight - 100f);
+        sparky.GetComponent<Sparky>().ScreenPosition = new Vector2(((float)x + 0.5f) * tiles.CellWidth, Screen.height - (y + 1) * tiles.CellHeight - 100f);
         sparky.transform.SetParent(LevelObject.transform, true);
         enemies.Add(sparky);
         return new Tile();

@@ -13,7 +13,7 @@ public class PatrollingEnemy : SpriteObject
     {
         base.Start();
         waitTime = 0.0f;
-        velocity.x = 120;
+        velocity.x = 0.1f;
         //this.LoadAnimation("Sprites/Flame/spr_flame@9", "default", true);
         //this.PlayAnimation("default");
     }
@@ -21,7 +21,7 @@ public class PatrollingEnemy : SpriteObject
     // Update is called once per frame
     protected void Update()
     {
-       // base.Update(gameTime);
+        base.Update();
         if (waitTime > 0)
         {
             waitTime -= (float)Time.deltaTime;

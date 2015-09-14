@@ -20,11 +20,11 @@ public class Tile {
     protected bool ice;
     public GameObject gameObject;
 
-    public Tile(TileType tp = TileType.Background)
+    public Tile(TileType tp = TileType.Background, bool Hot = false, bool Ice = false)
     {
         type = tp;
-        hot = false;
-        ice = false;
+        hot = Hot;
+        ice = Ice;
         if (type != TileType.Background)
             setGameObject();      
     }
