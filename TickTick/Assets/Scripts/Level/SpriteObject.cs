@@ -49,7 +49,11 @@ public abstract class SpriteObject : MonoBehaviour {
     public bool Mirror
     {
         get { return mirror; }
-        set { mirror = value; }
+        set {
+                if (mirror != value)
+                    transform.localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y, transform.localScale.z);
+                mirror = value; 
+            }
     }
 
     public Vector3 ScreenPosition

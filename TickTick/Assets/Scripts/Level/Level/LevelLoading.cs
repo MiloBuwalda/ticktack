@@ -145,11 +145,14 @@ public partial class Level
     private Tile LoadRocketTile(int x, int y, bool moveToLeft)
     {
         GameObject rocket = MonoBehaviour.Instantiate(Resources.Load("Prefabs/Characters/Rocket")) as GameObject;
-        Vector3 startPosition = Camera.main.ScreenToWorldPoint(new Vector3(((float)x + 0.5f) * tiles.CellWidth, Screen.height - y * tiles.CellHeight, 10));
-        rocket.GetComponent<Rocket>().Mirror = moveToLeft;
-        rocket.GetComponent<Rocket>().StartPosition = startPosition;
-        rocket.GetComponent<Rocket>().WorldPosition = startPosition;
         rocket.transform.SetParent(LevelObject.transform, true);
+        rocket.GetComponent<Rocket>().ScreenPosition = new Vector2(((float)x + 0.5f) * tiles.CellWidth, Screen.height - y * tiles.CellHeight);
+        rocket.GetComponent<Rocket>().StartPosition = rocket.GetComponent<Rocket>().WorldPosition;
+
+        rocket.GetComponent<Rocket>().Mirror = moveToLeft;
+
+
+
 
         enemies.Add(rocket);
         return new Tile();

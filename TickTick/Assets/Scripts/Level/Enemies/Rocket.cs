@@ -14,8 +14,6 @@ public class Rocket : SpriteObject {
        // this.LoadAnimation("Sprites/Rocket/spr_rocket@3", "default", true, 0.2f);
        // this.PlayAnimation("default");
        // this.Mirror = moveToLeft;
-
-        Mirror = false;
         Reset();
 
 	}
@@ -28,8 +26,8 @@ public class Rocket : SpriteObject {
             spawnTime -= Time.deltaTime;
             return;
         }
-        visible = false;
-        velocity.x = 600;
+        visible = true;
+        velocity.x = 5;
         if (Mirror)
             velocity.x *= -1f;
         CheckPlayerCollision();
@@ -44,10 +42,9 @@ public class Rocket : SpriteObject {
 
     public  void Reset()
     {
-        //this.Visible = false;
-        GetComponent<SpriteRenderer>().enabled = false;
+        visible = false;
         transform.position = startPosition;
-        velocity.x = 0;
+        velocity = Vector2.zero;
         this.spawnTime = Random.value * 5;
     }
 
