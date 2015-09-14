@@ -5,37 +5,34 @@
 using UnityEngine;
 using System.Collections;
 
-public class WaterDrop : MonoBehaviour {
+public class WaterDrop : SpriteObject {
 
     public AudioClip CollectSound;
     private float bounce;
-    private bool visible;
 
 	// Use this for initialization
 	void Start () {
-        visible = true;
+        base.Start();
 	}
 
     void FixedUpdate()
     {
         float t = Time.realtimeSinceStartup * 3.0f + Camera.main.WorldToScreenPoint(gameObject.transform.position).x;
         bounce = Mathf.Sin(t) * 0.002f;
-        transform.position = new Vector3(transform.position.x, transform.position.y + bounce, transform.position.z);
+        WorldPosition = new Vector3(transform.position.x, transform.position.y + bounce, transform.position.z);
     }
 
 
 	// Update is called once per frame
 	void Update () {
 
-        /*
-         * TODO
-         */ 
+        base.Update();
+
         bool collidesWithPlayer = false;
 
-        if (this.visible && collidesWithPlayer /* this.CollidesWith(player)*/)
+        if (visible && collidesWithPlayer /* this.CollidesWith(player)*/)
         {
             visible = false;
-            gameObject.GetComponent<SpriteRenderer>().enabled = visible;
             AudioSource.PlayClipAtPoint(CollectSound, transform.position);
             
         }
@@ -44,10 +41,6 @@ public class WaterDrop : MonoBehaviour {
 
     public void Reset()
     {
-        if (!visible)
-        {
-            visible = true;
-            gameObject.GetComponent<SpriteRenderer>().enabled = visible;
-        }
+        visible = true;
     }
 }

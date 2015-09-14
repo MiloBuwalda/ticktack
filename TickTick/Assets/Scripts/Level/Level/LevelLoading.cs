@@ -72,7 +72,7 @@ public partial class Level
                 return LoadBasicTile(TileType.Normal, true, false);
             case '*':
                 return LoadBasicTile(TileType.Normal, false, true);
-           /* case 'T':
+            case 'T':
                 return LoadTurtleTile(x, y);
             case 'R':
                 return LoadRocketTile(x, y, true);
@@ -83,7 +83,7 @@ public partial class Level
             case 'A':
             case 'B':
             case 'C':
-                return LoadFlameTile(x, y, tileType);*/
+                return LoadFlameTile(x, y, tileType);
             default:
                  return new Tile();
         }
@@ -108,53 +108,55 @@ public partial class Level
         return new Tile();
     }
 
-  /*  private Tile LoadFlameTile(int x, int y, char enemyType)
+    private Tile LoadFlameTile(int x, int y, char enemyType)
     {
-        GameObjectList enemies = this.Find("enemies") as GameObjectList;
-        TileField tiles = this.Find("tiles") as TileField;
         GameObject enemy = null;
         switch (enemyType)
         {
-            case 'A': enemy = new UnpredictableEnemy(); break;
-            case 'B': enemy = new PlayerFollowingEnemy(); break;
-            case 'C': 
-            default:         enemy = new PatrollingEnemy(); break;
+            case 'A': enemy = MonoBehaviour.Instantiate(Resources.Load("Prefabs/Characters/Unpredictable")) as GameObject; break;
+            case 'B': enemy = MonoBehaviour.Instantiate(Resources.Load("Prefabs/Characters/PlayerFollowing")) as GameObject; break;
+            case 'C':
+            default: enemy = MonoBehaviour.Instantiate(Resources.Load("Prefabs/Characters/Patrolling")) as GameObject; break;
         }
-        enemy.Position = new Vector2(((float)x + 0.5f) * tiles.CellWidth, (y + 1) * tiles.CellHeight);
+        enemy.transform.position = Camera.main.ScreenToWorldPoint(new Vector2(((float)x + 0.5f) * tiles.CellWidth, (y + 1) * tiles.CellHeight));
+        enemy.transform.SetParent(LevelObject.transform, true);
         enemies.Add(enemy);
         return new Tile();
-    }*/
+    }
 
-   /* private Tile LoadTurtleTile(int x, int y)
+    private Tile LoadTurtleTile(int x, int y)
     {
-        GameObjectList enemies = this.Find("enemies") as GameObjectList;
-        TileField tiles = this.Find("tiles") as TileField;
-        Turtle enemy = new Turtle();
-        enemy.Position = new Vector2(((float)x + 0.5f) * tiles.CellWidth, (y + 1) * tiles.CellHeight + 25.0f);
-        enemies.Add(enemy);
+        GameObject turtle = MonoBehaviour.Instantiate(Resources.Load("Prefabs/Characters/Turtle")) as GameObject;
+        turtle.GetComponent<Turtle>().ScreenPosition = new Vector2(((float)x + 0.5f) * tiles.CellWidth, (y + 1) * tiles.CellHeight + 25.0f);
+        turtle.transform.SetParent(LevelObject.transform, true);
+        enemies.Add(turtle);
         return new Tile();
-    }*/
+    }
 
 
-   /* private Tile LoadSparkyTile(int x, int y)
+    private Tile LoadSparkyTile(int x, int y)
     {
-        GameObjectList enemies = this.Find("enemies") as GameObjectList;
-        TileField tiles = this.Find("tiles") as TileField;
-        Sparky enemy = new Sparky((y + 1) * tiles.CellHeight - 100f);
-        enemy.Position = new Vector2(((float)x + 0.5f) * tiles.CellWidth, (y + 1) * tiles.CellHeight - 100f);
-        enemies.Add(enemy);
+        GameObject sparky = MonoBehaviour.Instantiate(Resources.Load("Prefabs/Characters/Sparky")) as GameObject;
+        float initialY = (y + 1) * tiles.CellHeight - 100f;
+        sparky.GetComponent<Sparky>().InitialY = initialY;
+        sparky.GetComponent<Sparky>().ScreenPosition = new Vector2(((float)x + 0.5f) * tiles.CellWidth, (y + 1) * tiles.CellHeight - 100f);
+        sparky.transform.SetParent(LevelObject.transform, true);
+        enemies.Add(sparky);
         return new Tile();
-    }*/
+    }
 
-   /* private Tile LoadRocketTile(int x, int y, bool moveToLeft)
+    private Tile LoadRocketTile(int x, int y, bool moveToLeft)
     {
-        GameObjectList enemies = this.Find("enemies") as GameObjectList;
-        TileField tiles = this.Find("tiles") as TileField;
-        Vector2 startPosition = new Vector2(((float)x + 0.5f) * tiles.CellWidth, (y + 1) * tiles.CellHeight);
-        Rocket enemy = new Rocket(moveToLeft, startPosition);
-        enemies.Add(enemy);
+        GameObject rocket = MonoBehaviour.Instantiate(Resources.Load("Prefabs/Characters/Rocket")) as GameObject;
+        Vector3 startPosition = Camera.main.ScreenToWorldPoint(new Vector3(((float)x + 0.5f) * tiles.CellWidth, (y + 1) * tiles.CellHeight, 10));
+        rocket.GetComponent<Rocket>().Mirror = moveToLeft;
+        rocket.GetComponent<Rocket>().StartPosition = startPosition;
+        rocket.GetComponent<Rocket>().WorldPosition = startPosition;
+        rocket.transform.SetParent(LevelObject.transform, true);
+
+        enemies.Add(rocket);
         return new Tile();
-    }*/
+    }
 
     private Tile LoadEndTile(int x, int y)
     {
@@ -170,9 +172,9 @@ public partial class Level
          w.transform.SetParent(LevelObject.transform, true);
 
        //  w.Origin = w.Center; ??
-         Vector3 position = new Vector3(x * tiles.CellWidth, Screen.height - y * tiles.CellHeight + 10, 10);
-         position += new Vector3(tiles.CellWidth, - tiles.CellHeight, 0) / 2;
-         w.transform.position = Camera.main.ScreenToWorldPoint(position);
+         Vector2 position = new Vector2(x * tiles.CellWidth, Screen.height - y * tiles.CellHeight + 10);
+         position += new Vector2(tiles.CellWidth, - tiles.CellHeight) / 2;
+         w.GetComponent<WaterDrop>().ScreenPosition = position;
          waterdrops.Add(w);
          return new Tile();
      }

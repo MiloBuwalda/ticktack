@@ -24,7 +24,7 @@ public class Hint : MonoBehaviour {
 
     public void Reset()
     {
-        timeLeft = 3;
+        timeLeft = 5;
         
     }
 

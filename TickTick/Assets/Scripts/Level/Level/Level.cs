@@ -14,7 +14,7 @@ public partial class Level  {
     private List<GameObject> backgrounds;
     private GameObject timer;
     private List<GameObject> waterdrops = new List<GameObject>();
-    private List<GameObject> enemies;
+    private List<GameObject> enemies = new List<GameObject>();
     private TileField tiles;
     private GameObject player;
     private GameObject end;
@@ -58,6 +58,16 @@ public partial class Level  {
         timer.transform.SetParent(LevelObject.transform);
 
         this.LoadTiles("Levels/" + levelIndex);
+    }
+
+    public TileField Tiles
+    {
+        get { return tiles; }
+    }
+
+    public GameObject Player
+    {
+        get { return player; }
     }
 
     public bool Completed
